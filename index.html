@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Welcome Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,74 +13,20 @@
             padding: 0;
         }
 
-        header {
-            background-color: #4CAF50; /* green */
-            color: white;
+        .container {
             text-align: center;
-            padding: 20px 0;
+            margin-top: 20vh;
         }
 
-        .interests {
-            margin: 20px auto;
+        .container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .container input[type="text"],
+        .container input[type="email"],
+        .container input[type="password"] {
             width: 80%;
-            max-width: 600px;
-            padding: 20px;
-            background-color: #fff; /* white */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
-        }
-
-        .interests h2 {
-            color: #4CAF50; /* green */
-            text-align: center;
-        }
-
-        .interests ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .interests li {
-            margin-bottom: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #4CAF50; /* green */
-            color: white;
-        }
-
-        .contact {
-            margin: 20px auto;
-            width: 80%;
-            max-width: 600px;
-            padding: 20px;
-            background-color: #fff; /* white */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
-            text-align: center;
-        }
-
-        form {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -88,7 +34,7 @@
             box-sizing: border-box;
         }
 
-        input[type="submit"] {
+        .container input[type="submit"] {
             background-color: #4CAF50; /* green */
             color: white;
             border: none;
@@ -98,121 +44,118 @@
             transition: background-color 0.3s ease;
         }
 
-        input[type="submit"]:hover {
+        .container input[type="submit"]:hover {
             background-color: #45a049; /* darker green */
         }
 
-        #successMessage {
+        .container a {
+            text-decoration: none;
+            color: #333;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styles for main page */
+        #mainPage {
             display: none;
-            color: green;
+        }
+
+        #mainPage header {
+            background-color: #4CAF50; /* green */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #mainPage .subjects {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff; /* white */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
+        }
+
+        #mainPage .subjects h2 {
+            color: #4CAF50; /* green */
+            text-align: center;
+        }
+
+        #mainPage .subjects ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #mainPage .subjects li {
+            margin-bottom: 10px;
+        }
+
+        #mainPage #subjectInfo {
+            display: none;
+        }
+
+        #mainPage #timetable {
             margin-top: 20px;
-            font-weight: bold;
+            width: 80%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .success-animation {
-            animation: success 2s forwards;
-        }
-
-        @keyframes success {
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(2);
-            }
+        #mainPage #timer {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
 <body>
-    <header>
+    <div id="welcomePage" class="container">
         <h1>Welcome to K.Aravind's Personal Website</h1>
-    </header>
-    <section class="interests">
-        <h2>My Interests</h2>
-        <ul>
-            <li>Studying</li>
-            <li>Programming</li>
-            <li>Learning new technologies</li>
-            <li>Playing sports</li>
-            <li>Exploring nature</li>
-        </ul>
-    </section>
-    <section class="subjects">
-        <h2>4th Semester Subjects</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Subject Code</th>
-                    <th>Subject</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>CS3452</td>
-                    <td>Theory of Computation</td>
-                </tr>
-                <tr>
-                    <td>CS3491</td>
-                    <td>Artificial Intelligence and Machine Learning</td>
-                </tr>
-                <tr>
-                    <td>CS3492</td>
-                    <td>Database Management Systems</td>
-                </tr>
-                <tr>
-                    <td>IT3401</td>
-                    <td>Web Essentials</td>
-                </tr>
-                <tr>
-                    <td>CS3451</td>
-                    <td>Introduction to Operating Systems</td>
-                </tr>
-                <tr>
-                    <td>GE3451</td>
-                    <td>Environmental Science and Sustainability</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <section class="contact">
-        <h2>Contact Me</h2>
-        <form id="contactForm">
-            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Your Phone Number" required><br>
-            <input type="email" id="email" name="email" placeholder="Your Email Address" required><br>
-            <textarea id="description" name="description" placeholder="Your Message" rows="4" required></textarea><br>
-            <input type="submit" value="Submit" id="submitButton">
+        <form id="loginForm">
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required><br>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+            <input type="submit" value="Login">
         </form>
-        <div id="successMessage" style="display: none;">Message successfully submitted!</div>
-    </section>
+        <a href="#" id="signupLink">Sign Up</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="timetable.html">View Timetable</a>
+    </div>
 
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            // Your validation logic to check Indian phone number and send OTP goes here
-            var phoneNumber = document.getElementById("phoneNumber").value;
-            var email = document.getElementById("email").value;
-            var description = document.getElementById("description").value;
-            if (validatePhoneNumber(phoneNumber)) {
-                // If phone number is valid, proceed with sending OTP or further action
-                // For now, let's just show a success message and animate it
-                document.getElementById("successMessage").style.display = "block";
-                document.getElementById("submitButton").classList.add("success-animation");
-                setTimeout(function() {
-                    document.getElementById("successMessage").style.display = "none";
-                    document.getElementById("submitButton").classList.remove("success-animation");
-                }, 2000);
-            } else {
-                alert("Please enter a valid Indian phone number.");
-            }
-        });
-
-        function validatePhoneNumber(phoneNumber) {
-            // Basic validation for Indian phone numbers (10 digits starting with 7, 8, or 9)
-            var phoneRegex = /^[789]\d{9}$/;
-            return phoneRegex.test(phoneNumber);
-        }
-    </script>
-</body>
-</html>
+    <div id="mainPage">
+        <header>
+            <h1>Welcome to K.Aravind's Personal Website</h1>
+        </header>
+        <section class="subjects">
+            <h2>4th Semester Subjects</h2>
+            <ul>
+                <li><a href="#" onclick="showSubjectInfo('CS3452')">Theory of Computation</a></li>
+                <li><a href="#" onclick="showSubjectInfo('CS3491')">Artificial Intelligence and Machine Learning</a></li>
+                <li><a href="#" onclick="showSubjectInfo('CS3492')">Database Management Systems</a></li>
+                <li><a href="#" onclick="showSubjectInfo('IT3401')">Web Essentials</a></li>
+                <li><a href="#" onclick="showSubjectInfo('CS3451')">Introduction to Operating Systems</a></li>
+                <li><a href="#" onclick="showSubjectInfo('GE3451')">Environmental Science and Sustainability</a></li>
+            </ul>
+        </section>
+        <section id="subjectInfo">
+            <!-- Subject info will be displayed here -->
+        </section>
+        <section id="timetable">
+            <h2>Timetable</h2>
+            <table border="1">
+                <tr>
+                    <th>Date</th>
+                    <th>Event</th>
+                </tr>
+                <tr>
+                    <td>June 15, 2024</td>
+                    <td>4th Semester Exam</td>
+                </tr>
+            </table>
