@@ -25,7 +25,7 @@
 
         .container input[type="text"],
         .container input[type="email"],
-        .container input[type="password"] {
+        .container textarea {
             width: 80%;
             padding: 10px;
             margin-bottom: 10px;
@@ -57,6 +57,35 @@
 
         .container a:hover {
             text-decoration: underline;
+        }
+
+        /* Countdown Timer Styles */
+        #timer {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff; /* white */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
+        }
+
+        #timer h2 {
+            color: #4CAF50; /* green */
+        }
+
+        #timer .timer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #timer .timer-container div {
+            flex: 1;
+        }
+
+        #timer .timer-container div span {
+            font-size: 2rem;
         }
 
         /* Styles for main page */
@@ -98,35 +127,19 @@
         #mainPage #subjectInfo {
             display: none;
         }
-
-        #mainPage #timetable {
-            margin-top: 20px;
-            width: 80%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #mainPage #timer {
-            margin-top: 20px;
-            width: 80%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
     </style>
 </head>
 <body>
     <div id="welcomePage" class="container">
-        <h1>Welcome to K.Aravind's Personal Website</h1>
+        <h1>Welcome to Aravind's  Website</h1>
         <form id="loginForm">
             <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required><br>
             <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
             <input type="submit" value="Login">
         </form>
         <a href="#" id="signupLink">Sign Up</a>
-        <a href="contact.html">Contact Us</a>
         <a href="timetable.html">View Timetable</a>
+        <a href="contact.html">Contact Me</a>
     </div>
 
     <div id="mainPage">
@@ -147,15 +160,94 @@
         <section id="subjectInfo">
             <!-- Subject info will be displayed here -->
         </section>
-        <section id="timetable">
-            <h2>Timetable</h2>
-            <table border="1">
-                <tr>
-                    <th>Date</th>
-                    <th>Event</th>
-                </tr>
-                <tr>
-                    <td>June 15, 2024</td>
-                    <td>4th Semester Exam</td>
-                </tr>
-            </table>
+    </div>
+
+    <div id="timer">
+        <h2>4th Semester Exam Countdown Timer</h2>
+        <div class="timer-container">
+            <div>
+                <span id="days">00</span><br>Days
+            </div>
+            <div>
+                <span id="hours">00</span><br>Hours
+            </div>
+            <div>
+                <span id="minutes">00</span><br>Minutes
+            </div>
+            <div>
+                <span id="seconds">00</span><br>Seconds
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer Functionality
+        var countDownDate = new Date("June 15, 2024 00:00:00").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+            }
+        }, 1000);
+
+        // Form Submission
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var password = document.getElementById("password").value;
+            
+            // Perform validation and authentication here
+            // For simplicity, let's assume validation is successful and show main page
+            document.getElementById("welcomePage").style.display = "none";
+            document.getElementById("mainPage").style.display = "block";
+        });
+
+        // Sign Up Link
+        document.getElementById("signupLink").addEventListener("click", function(event) {
+            event.preventDefault();
+            // Redirect to sign up page
+            window.location.href = "signup.html";
+        });
+
+        // Function to Show Subject Information
+        function showSubjectInfo(subjectCode) {
+            // Fetch subject information based on subject code
+            var subjectInfo = getSubjectInfo(subjectCode);
+            
+            // Display subject information
+            document.getElementById("subjectInfo").innerHTML = subjectInfo;
+            document.getElementById("subjectInfo").style.display = "block";
+        }
+
+        // Dummy function to get subject information
+        function getSubjectInfo(subjectCode) {
+            // Return subject information based on subject code
+            // For simplicity, hardcode the information here
+            switch(subjectCode) {
+                case 'CS3452':
+                    return "<h2>Theory of Computation</h2><p>This subject deals with the study of models of computation and the mathematical concepts related to them.</p><p>Topics include automata theory, formal languages, computability theory, and complexity theory.</p>";
+                case 'CS3491':
+                    return "<h2>Artificial Intelligence and Machine Learning</h2><p>This subject covers the study of algorithms and models that enable computers to perform tasks that require human-like intelligence.</p><p>Topics include search algorithms, knowledge representation, machine learning algorithms, and natural language processing.</p>";
+                // Add information for other subjects here
+                default:
+                    return "<h2>Subject Information</h2><p>No information available for this subject.</p>";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
