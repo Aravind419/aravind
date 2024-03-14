@@ -43,6 +43,36 @@
         .interests li {
             margin-bottom: 10px;
         }
+
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50; /* green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* darker green */
+        }
     </style>
 </head>
 <body>
@@ -55,9 +85,31 @@
             <li>Studying</li>
             <li>Programming</li>
             <li>Learning new technologies</li>
-           
+            <li>Playing sports</li>
             <li>Exploring nature</li>
         </ul>
     </section>
+    <section class="contact">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Your Phone Number" required><br>
+            <input type="email" id="email" name="email" placeholder="Your Email Address" required><br>
+            <textarea id="description" name="description" placeholder="Your Message" rows="4" required></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="successMessage" style="display: none;">Message successfully submitted!</div>
+    </section>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // You can add code here to handle form submission, such as sending an email or storing the data in a database.
+            // For now, let's just show a success message.
+            document.getElementById("successMessage").style.display = "block";
+            // You can also reset the form here if needed.
+            // document.getElementById("contactForm").reset();
+        });
+    </script>
 </body>
 </html>
+
