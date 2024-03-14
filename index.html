@@ -20,33 +20,32 @@
             padding: 20px 0;
         }
 
-        .interests {
+        .container {
+            max-width: 800px;
             margin: 20px auto;
-            width: 80%;
-            max-width: 600px;
             padding: 20px;
             background-color: #fff; /* white */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
         }
 
-        .interests h2 {
+        .section-heading {
             color: #4CAF50; /* green */
             text-align: center;
+            margin-bottom: 20px;
         }
 
-        .interests ul {
-            list-style-type: none;
-            padding: 0;
+        .interests {
+            margin-bottom: 40px;
         }
 
-        .interests li {
-            margin-bottom: 10px;
+        .contact {
+            text-align: center;
         }
 
         form {
-            margin-top: 20px;
-            text-align: center;
+            display: inline-block;
+            text-align: left;
         }
 
         input[type="text"],
@@ -73,37 +72,100 @@
         input[type="submit"]:hover {
             background-color: #45a049; /* darker green */
         }
+
+        #successMessage {
+            display: none;
+            margin-top: 20px;
+            color: #4CAF50; /* green */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2; /* light gray */
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Welcome to K.Aravind's Personal Website</h1>
     </header>
-    <section class="interests">
-        <h2>My Interests</h2>
-        <ul>
-            <li>Studying</li>
-            <li>Programming</li>
-            <li>Learning new technologies</li>
-            <li>Playing sports</li>
-            <li>Exploring nature</li>
-        </ul>
-    </section>
-    <section class="contact">
-        <h2>Contact Me</h2>
-        <form id="contactForm">
-            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Your Phone Number" required><br>
-            <input type="email" id="email" name="email" placeholder="Your Email Address" required><br>
-            <textarea id="description" name="description" placeholder="Your Message" rows="4" required></textarea><br>
-            <input type="submit" value="Submit">
-        </form>
-        <div id="successMessage" style="display: none;">Message successfully submitted!</div>
-    </section>
+    <div class="container">
+        <section class="interests">
+            <h2 class="section-heading">My Interests</h2>
+            <ul>
+                <li>Studying</li>
+                <li>Programming</li>
+                <li>Learning new technologies</li>
+                
+                <li>Exploring nature</li>
+            </ul>
+        </section>
+        <section class="contact">
+            <h2 class="section-heading">Contact Me</h2>
+            <form id="contactForm">
+                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Your Phone Number" required><br>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" required><br>
+                <textarea id="description" name="description" placeholder="Your Message" rows="4" required></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+            <div id="successMessage">Message successfully submitted!</div>
+        </section>
+        <section class="semester-details">
+            <h2 class="section-heading">4th Semester Subjects</h2>
+            <table>
+                <tr>
+                    <th>Subject Code</th>
+                    <th>Subject</th>
+                </tr>
+                <tr>
+                    <td>CS3452</td>
+                    <td>Theory of Computation</td>
+                </tr>
+                <tr>
+                    <td>CS3491</td>
+                    <td>Artificial Intelligence and Machine Learning</td>
+                </tr>
+                <tr>
+                    <td>CS3492</td>
+                    <td>Database Management Systems</td>
+                </tr>
+                <tr>
+                    <td>IT3401</td>
+                    <td>Web Essentials</td>
+                </tr>
+                <tr>
+                    <td>CS3451</td>
+                    <td>Introduction to Operating Systems</td>
+                </tr>
+                <tr>
+                    <td>GE3451</td>
+                    <td>Environmental Science and Sustainability</td>
+                </tr>
+            </table>
+        </section>
+    </div>
 
     <script>
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            // You can add code here to handle form submission, such as sending an email or storing the data in a database.
+            // Check if the phone number is valid (simple check for 10 digits)
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            if (!/^\d{10}$/.test(phoneNumber)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return;
+            }
+            // You can add more complex validation here for email, etc.
             // For now, let's just show a success message.
             document.getElementById("successMessage").style.display = "block";
             // You can also reset the form here if needed.
@@ -112,4 +174,3 @@
     </script>
 </body>
 </html>
-
