@@ -127,10 +127,24 @@
         #mainPage #subjectInfo {
             display: none;
         }
+            
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.button:hover {
+  background-color: #0056b3;
+}
+
     </style>
 </head>
 <body>
     <div id="welcomePage" class="container">
+        <a href="javascript:history.go(-1)" class="button">Go Back</a
         <h1>Welcome to Aravind's  Website</h1>
         <form id="loginForm">
             <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required><br>
@@ -147,6 +161,7 @@
             <h1>Welcome to K.Aravind's Personal Website</h1>
         </header>
         <section class="subjects">
+            <a href="javascript:history.go(-1)" class="button">Go Back</a
             <h2>4th Semester Subjects</h2>
             <ul>
                 <li><a href="#" onclick="showSubjectInfo('CS3452')">Theory of Computation</a></li>
